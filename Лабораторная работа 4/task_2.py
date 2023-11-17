@@ -1,4 +1,3 @@
-# TODO импортировать необходимые молули
 import csv
 import json
 
@@ -7,11 +6,8 @@ OUTPUT_FILENAME = "output.json"
 
 def task(csv_file_path,json_file_path) -> None:
     # TODO считать содержимое csv файла
-    data = []
     with open(csv_file_path, newline='') as csvfile:
-        reader = csv.DictReader(csvfile)
-        for row in reader:
-            data.append(row)
+        data = [row for row in csv.DictReader(csvfile)]
 
     # TODO Сериализовать в файл с отступами равными 4
     with open(json_file_path, 'w') as jsonfile:
